@@ -1,0 +1,11 @@
+---
+import './styles/counter.scss'
+
+// TODO - replace this with solid js counter
+const props = Astro.props;
+---
+
+<div class="fixed left-20 bottom-10 text-white" id="page-counter">
+    <span class="m-0 p-0 text-7xl">/0</span>
+    <span class="m-0 p-0 text-7xl">{props.SectionCount}</span>
+</div>
