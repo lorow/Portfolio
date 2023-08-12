@@ -10,6 +10,7 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 import {GUI} from "dat.gui";
 
+// TODO rewrite this to make use of solidjs
 
 const loader = new GLTFLoader();
 let focus_object: any;
