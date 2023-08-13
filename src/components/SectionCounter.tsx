@@ -1,7 +1,7 @@
 
 import './styles/counter.scss'
 
-export default function SectionCounter(props) {
+export default function SectionCounter(props: any) {
     // TODO add animation on section change
     return (
         <div class="fixed left-20 bottom-10 text-white" id="page-counter">

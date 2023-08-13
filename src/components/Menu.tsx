@@ -1,8 +1,8 @@
 import './styles/menu.scss'
 
-export default function Menu(props) {
+export default function Menu(props: any) {
     let setSection = props.setSection;
-    const HandleRouteSwitch = (route) => {
+    const HandleRouteSwitch = (route: number) => {
         // tood add routing and turn off the menu
         setSection(route);
     }
