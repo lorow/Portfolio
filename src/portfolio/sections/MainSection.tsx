@@ -1,15 +1,5 @@
-import {createSignal} from "solid-js";
-import Menu from '../components/Menu'
-import SectionCounter from '../components/SectionCounter';
-import Socials from '../components/socials';
-
-
-export default function IndexPage() {
-    const [section, setSection] = createSignal(1);
-
+const MainSection = () => {    
     return (
-        <>
-        <Menu setSection={setSection} />
         <div class="absolute flex text-white pl-20 pt-10 w-full">
             <main>
                 <div class="flex max-lg:ml-5">
@@ -23,8 +13,7 @@ export default function IndexPage() {
                 </div>
             </main>
         </div>
-        <SectionCounter section={section} />
-        <Socials/>
-        </>
     )
 }
+
+export default MainSection;
