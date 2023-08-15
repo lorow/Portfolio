@@ -7,11 +7,14 @@ import Socials from './components/socials';
 
 export default function IndexPage() {
     const [section, setSection] = createSignal(1);
+    const [progress, setProgress] = createSignal(0);
     let canvasElement!: HTMLCanvasElement;
     let canvas;
 
     onMount(() => {
         canvas = new Canvas(canvasElement);
+        canvas.addOnProgressCallback(setProgress);
+        canvas.start();
         canvas.render();
     })
 
