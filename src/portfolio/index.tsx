@@ -5,6 +5,7 @@ import Canvas from './canvas/Canvas'
 import MainSection  from './sections/MainSection';
 import BlogSection from './sections/BlogSection';
 import ProjectSection from './sections/ProjectsSection';
+import AboutSection from './sections/AboutSection';
 import Menu from './components/Menu'
 import SectionCounter from './components/SectionCounter';
 import Socials from './components/socials';
@@ -41,6 +42,7 @@ export default function IndexPage() {
                 <MainSection />
                 <ProjectSection />    
                 <BlogSection />
+                <AboutSection />
             </main>
             <SectionCounter section={section} />
             <Socials/>
