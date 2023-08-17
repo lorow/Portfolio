@@ -1,5 +1,6 @@
 import './global.scss';
 import { createSignal, onMount, } from "solid-js";
+import { debouce } from './utils';
 import Canvas from './canvas/Canvas'
 import MainSection  from './sections/MainSection';
 import BlogSection from './sections/BlogSection';
@@ -16,16 +17,15 @@ export default function IndexPage() {
     let mainElement!: HTMLElement;
 
     onMount(() => {
-
         const scrollStep = window.innerHeight;
-        window.addEventListener("wheel", (event: WheelEvent) => {
+        
+        window.addEventListener("wheel", debouce((event: WheelEvent) => {
             let scrollDirection = event.deltaY < 100 ? -scrollStep : scrollStep;
             mainElement.scrollBy({
                 top: scrollDirection,
                 behavior: "smooth"
-            });
-
-        }, false);
+            }); 
+        }), false);
 
         canvas = new Canvas(canvasElement);
         canvas.addOnProgressCallback(setProgress);
