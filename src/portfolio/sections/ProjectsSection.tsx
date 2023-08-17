@@ -1,7 +1,7 @@
-export default function BlogSection(){
+export default function ProjectSection() {
     return (
         <section class="w-full h-screen">
             
         </section>
     )
-}
+} 
