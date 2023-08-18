@@ -1,7 +1,8 @@
 import './global.scss';
 import { createSignal, onMount, } from "solid-js";
-import { debouce } from './utils';
+import { debouce, availableSections } from './utils';
 import Canvas from './canvas/Canvas'
+import JumpableSection from './sections/JumpableSection';
 import MainSection  from './sections/MainSection';
 import BlogSection from './sections/BlogSection';
 import ProjectSection from './sections/ProjectsSection';
@@ -16,16 +17,29 @@ export default function IndexPage() {
     let canvasElement!: HTMLCanvasElement;
     let canvas;
     let mainElement!: HTMLElement;
+    let sectionsRefs = new Map<number, HTMLElement>();
 
-    onMount(() => {
-        const scrollStep = window.innerHeight;
-        
+    const addRef = (sectionName: number , ref: HTMLElement) => sectionsRefs.set(sectionName, ref);
+
+    onMount(() => {        
         window.addEventListener("wheel", debouce((event: WheelEvent) => {
-            let scrollDirection = event.deltaY < 100 ? -scrollStep : scrollStep;
-            mainElement.scrollBy({
-                top: scrollDirection,
-                behavior: "smooth"
-            }); 
+            event.preventDefault();
+
+            const sectionsLength = sectionsRefs.size;
+            const previousSection = section();
+
+            if (event.deltaY < 100) {
+                setSection(Math.max(1, section() - 1));
+            } else {
+                setSection(Math.min(section() + 1, sectionsLength));
+            }
+            
+            const currentSection = section();
+            if (previousSection !== currentSection) {                
+                sectionsRefs.get(currentSection - 1)!.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
         }), false);
 
         canvas = new Canvas(canvasElement);
@@ -38,11 +52,19 @@ export default function IndexPage() {
         <>
             <canvas ref={canvasElement} id="CanvasDisplay" class="fixed"/>
             <Menu setSection={setSection} />
-            <main ref={mainElement} class="relative max-h-screen overflow-y-scroll no-scrollbar pointer-events-none">
-                <MainSection />
-                <ProjectSection />    
-                <BlogSection />
-                <AboutSection />
+            <main ref={mainElement} class="relative max-h-screen overflow-y-hidden no-scrollbar pointer-events-none">
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index}>
+                    <MainSection/>
+                </JumpableSection>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects}>
+                    <ProjectSection/>
+                </JumpableSection>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog}>
+                    <BlogSection/>
+                </JumpableSection>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about}>
+                    <AboutSection/>
+                </JumpableSection>
             </main>
             <SectionCounter section={section} />
             <Socials/>

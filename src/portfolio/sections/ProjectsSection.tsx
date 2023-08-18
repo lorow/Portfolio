@@ -1,6 +1,6 @@
 export default function ProjectSection() {
     return (
-        <section class="w-full h-screen">
+        <>
             <div class="flex text-white pl-20 pt-10 w-full pointer-events-auto">
                 <div class="flex flex-col max-lg ml-5">
                     <h1 class="text-8xl antialiased leading-[10rem]">Projects</h1>
@@ -43,6 +43,6 @@ export default function ProjectSection() {
                     </div>
                 </article>
             </div>
-        </section>
+        </>
     )
 } 
