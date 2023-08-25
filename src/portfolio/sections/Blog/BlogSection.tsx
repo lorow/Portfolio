@@ -17,7 +17,9 @@ export default function BlogSection(){
                 <Article title="A neat title" brief="some desc..." url="" />
             </section>
             <section class="flex justify-center text-white pointer-events-auto mt-10">
-                <a href="" class="text-center leading-[3rem] border border-neutral-600 backdrop-blur w-[15rem] h-[3rem] block rounded"> Or Checkout the blog &#8594;</a>
+                <a href="" class="text-center leading-[3rem] border border-neutral-600 backdrop-blur w-[15rem] h-[3rem] block rounded hover:scale-[1.05] ease-in-out duration-200">
+                    Or checkout the blog &#8594;
+                </a>
             </section>
         </>
     )

@@ -1,0 +1,53 @@
+$size: 7vmin;
+$color: rgba(224, 224, 224, 0.5);
+
+.scroll {
+  height: $size;
+  width: $size * 0.5;
+  border-radius: $size;
+  border: calc($size/33) solid $color;
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: calc(50% - #{$size} / 35);
+    top: calc($size/5);
+    height: calc($size/5);
+    width: calc($size/15);
+    background: $color;
+    border-radius: 30%;
+    animation: scroll 3s infinite;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc($size/4));
+  }
+}
+
+.fade-out {
+  // visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.fade-in {
+  // visibility: visible;
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}

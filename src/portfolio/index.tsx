@@ -10,6 +10,7 @@ import AboutSection from './sections/AboutSection';
 import Menu from './components/Menu'
 import SectionCounter from './components/SectionCounter';
 import Socials from './components/socials';
+import ScrollPointer from "./components/ScrollPointer"
 
 export default function IndexPage() {
     const [section, setSection] = createSignal(1);
@@ -67,6 +68,7 @@ export default function IndexPage() {
                 </JumpableSection>
             </main>
             <SectionCounter section={section} />
+            <ScrollPointer currentSection={section} maxSection={4}/>
             <Socials/>
         </>
     )
