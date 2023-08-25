@@ -9,39 +9,40 @@ export default function ProjectSection() {
                 </div>
             </div>
 
-            <div class="relative text-white pl-20 pt-10 w-full pointer-events-auto flex flex-col">
-                <article>
-                    <h2>EyeTrackVR</h2>
+            <div class="relative text-white pl-20 ml-20 w-fit pt-14 flex flex-col gap-14 pointer-events-auto">
+                <article class="flex flex-col gap-2">
+                    <h2 class="text-3xl text-white">/01 - EyeTrackVR</h2>
                     <div>
                         <p>ETVR is an open source and open hardware, completely DIY solution</p>
                         <p>that allows any VR headset to add Eye Tracking</p>
                     </div>
-                    <div>
-                        <a href="https://github.com/eyetrackvr/eyetrackvr/">Check it out!</a>
+                    <div class="flex flex-row-reverse">
+                        <a href="https://github.com/eyetrackvr/eyetrackvr/" class="text-base opacity-70 hover:opacity-100 ease-in-out duration-200">Check it out! <p class="inline">&#8594;</p></a>
                     </div>
                 </article>
 
-                <article>
-                    <h2>OpenIris</h2>
+                <article class="flex flex-col gap-2">
+                    <h2 class="text-3xl text-white">/02 - EyeTrackVR</h2>
                     <div>
-                        <p>It's the firmware part of the ETVR project. It handles a lot,</p>
-                        <p>from the device discovery, through configuration management and streaming</p>
+                        <p>ETVR is an open source and open hardware, completely DIY solution</p>
+                        <p>that allows any VR headset to add Eye Tracking</p>
                     </div>
-                    <div>
-                        <a href="https://github.com/eyetrackvr/OpenIris/">Check it out!</a>
+                    <div class="flex flex-row-reverse">
+                        <a href="https://github.com/eyetrackvr/eyetrackvr/" class="text-base opacity-70 hover:opacity-100 ease-in-out duration-200">Check it out! <p class="inline">&#8594;</p></a>
                     </div>
                 </article>
 
-                <article>
-                    <h2>OpenIris</h2>
+                <article class="flex flex-col gap-2">
+                    <h2 class="text-3xl text-white">/03 - EyeTrackVR</h2>
                     <div>
-                        <p>It's the firmware part of the ETVR project. It handles a lot,</p>
-                        <p>from the device discovery, through configuration management and streaming</p>
+                        <p>ETVR is an open source and open hardware, completely DIY solution</p>
+                        <p>that allows any VR headset to add Eye Tracking</p>
                     </div>
-                    <div>
-                        <a href="https://github.com/eyetrackvr/OpenIris/">Check it out!</a>
+                    <div class="flex flex-row-reverse">
+                        <a href="https://github.com/eyetrackvr/eyetrackvr/" class="text-base opacity-70 hover:opacity-100 ease-in-out duration-200">Check it out! <p class="inline">&#8594;</p></a>
                     </div>
                 </article>
+
             </div>
         </>
     )
