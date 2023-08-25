@@ -4,7 +4,7 @@ import { debouce, availableSections } from './utils';
 import Canvas from './canvas/Canvas'
 import JumpableSection from './sections/JumpableSection';
 import MainSection  from './sections/MainSection';
-import BlogSection from './sections/BlogSection';
+import BlogSection from './sections/Blog/BlogSection';
 import ProjectSection from './sections/ProjectsSection';
 import AboutSection from './sections/AboutSection';
 import Menu from './components/Menu'
