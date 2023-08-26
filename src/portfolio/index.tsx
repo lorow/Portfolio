@@ -2,6 +2,7 @@ import './global.scss';
 import { createSignal, onMount, } from "solid-js";
 import { debouce, availableSections } from './utils';
 import Canvas from './canvas/Canvas'
+import LoadingPage from './sections/LoadingPage';
 import JumpableSection from './sections/JumpableSection';
 import MainSection  from './sections/MainSection';
 import BlogSection from './sections/Blog/BlogSection';
@@ -52,6 +53,7 @@ export default function IndexPage() {
     return (
         <>
             <canvas ref={canvasElement} id="CanvasDisplay" class="fixed"/>
+            <LoadingPage progress={progress} />
             <Menu setSection={setSection} />
             <main ref={mainElement} class="relative max-h-screen overflow-y-hidden no-scrollbar pointer-events-none">
                 <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index}>
