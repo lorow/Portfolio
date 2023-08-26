@@ -67,7 +67,7 @@ export default function IndexPage() {
                     <AboutSection/>
                 </JumpableSection>
             </main>
-            <SectionCounter section={section} />
+            <SectionCounter currentSection={section} />
             <ScrollPointer currentSection={section} maxSection={4}/>
             <Socials/>
         </>
