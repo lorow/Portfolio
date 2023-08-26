@@ -1,11 +1,11 @@
-$size: 6vmin;
-$color: rgba(224, 224, 224, 0.5);
+$size: 5.5vmin;
+$color: rgba(224, 224, 224, 0.8);
 
 .scroll {
   height: $size;
-  width: $size * 0.5;
+  width: $size * 0.52;
   border-radius: $size;
-  border: calc($size/33) solid $color;
+  border: calc($size/26.5) solid $color;
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 
