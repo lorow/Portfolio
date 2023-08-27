@@ -1,15 +1,17 @@
+import { createSignal } from 'solid-js';
 import './styles/menu.scss'
 
 export default function Menu(props: any) {
     let setSection = props.setSection;
+    let menuToggle!: HTMLInputElement;
     const HandleRouteSwitch = (route: number) => {
-        // tood add routing and turn off the menu
+        menuToggle.checked = false;
         setSection(route);
     }
 
     return (
         <>
-        <input type="checkbox" id="burger-toggle"></input>
+        <input ref={menuToggle} type="checkbox" id="burger-toggle" />
         <label for="burger-toggle" class="burger-menu">
             <div class="line"></div>
             <div class="line"></div>
@@ -17,8 +19,42 @@ export default function Menu(props: any) {
         </label>
     
         <div class="menu flex flex-col gap-6">
+        <div class="menu-item">
+                <a class="menu-item-link" href="#projects" onClick={() => HandleRouteSwitch(1)}>/Home</a>
+                <div class="marquee">
+                    <div class="marquee-inner" aria-hidden="true">
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                        <span>Home</span>
+                    </div>
+                </div>
+            </div>
             <div class="menu-item">
-                <a class="menu-item-link" href="#blog" onClick={() => HandleRouteSwitch(1)}>/Blog</a>
+                <a class="menu-item-link" href="#projects" onClick={() => HandleRouteSwitch(2)}>/Projects</a>
+                <div class="marquee">
+                    <div class="marquee-inner" aria-hidden="true">
+                    <span>Projects</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                        <span>Works</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a class="menu-item-link" href="#blog" onClick={() => HandleRouteSwitch(3)}>/Blog</a>
                 <div class="marquee">
                     <div class="marquee-inner" aria-hidden="true">
                         <span>Blog</span>
@@ -36,22 +72,7 @@ export default function Menu(props: any) {
                 </div>
             </div>
             <div class="menu-item">
-                <a class="menu-item-link" href="#blog" onClick={() => HandleRouteSwitch(2)}>/Works</a>
-                <div class="marquee">
-                    <div class="marquee-inner" aria-hidden="true">
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                        <span>Works</span>
-                    </div>
-                </div>
-            </div>
-            <div class="menu-item">
-                <a class="menu-item-link" href="#blog" onClick={() => HandleRouteSwitch(3)}>/About</a>
+                <a class="menu-item-link" href="#about" onClick={() => HandleRouteSwitch(4)}>/About</a>
                 <div class="marquee">
                     <div class="marquee-inner" aria-hidden="true">
                         <span>About</span>

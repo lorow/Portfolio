@@ -1,5 +1,5 @@
 import './global.scss';
-import { createSignal, onMount, } from "solid-js";
+import { createEffect, createSignal, onMount, } from "solid-js";
 import { debouce, availableSections } from './utils';
 import Canvas from './canvas/Canvas'
 import LoadingPage from './sections/LoadingPage';
@@ -26,23 +26,20 @@ export default function IndexPage() {
     onMount(() => {        
         window.addEventListener("wheel", debouce((event: WheelEvent) => {
             event.preventDefault();
-
-            const sectionsLength = sectionsRefs.size;
-            const previousSection = section();
-
             if (event.deltaY < 100) {
                 setSection(Math.max(1, section() - 1));
             } else {
-                setSection(Math.min(section() + 1, sectionsLength));
-            }
-            
-            const currentSection = section();
-            if (previousSection !== currentSection) {                
-                sectionsRefs.get(currentSection - 1)!.scrollIntoView({
-                    behavior: "smooth"
-                });
+                setSection(Math.min(section() + 1, sectionsRefs.size));
             }
         }), false);
+
+        const scrollToSection = () => {
+            sectionsRefs.get(section() - 1)!.scrollIntoView({
+                behavior: "smooth"
+            })
+        }
+
+        createEffect(() => { scrollToSection() });
 
         canvas = new Canvas(canvasElement);
         canvas.addOnProgressCallback(setProgress);
