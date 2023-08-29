@@ -68,7 +68,7 @@ export default function IndexPage() {
             </main>
             <SectionCounter currentSection={section} />
             <ScrollPointer currentSection={section} maxSection={4}/>
-            <Socials/>
+            <Socials shouldHideOnMobile={true}/>
         </>
     )
 }
