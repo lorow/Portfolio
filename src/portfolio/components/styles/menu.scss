@@ -38,7 +38,11 @@
 }
 
 .burger-menu {
-   --burger-menu-radius: 4em;
+   --burger-menu-radius: 2.5em;
+
+   @media (min-width: 500px) {
+    --burger-menu-radius: 4em;
+   }
 
     position: fixed;
     top: 5vh;
@@ -94,6 +98,8 @@
         }
       }
     
+
+
       &:hover {
         .line::after {
           transform: translateX(0);

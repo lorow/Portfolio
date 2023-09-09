@@ -1,28 +1,27 @@
 export default function AboutSection(){
     return (
-        <section class="w-full h-screen">
-            <div class="flex text-white pl-20 pt-10 w-full pointer-events-auto">
+        <>
+            <div class="flex text-white md:pl-20 pt-2 sm:pt-10 w-full pointer-events-auto">
                 <div class="flex flex-col max-lg ml-5">
-                    <h1 class="text-7xl antialiased leading-[10rem] h-32">About</h1>
-                    <p class="text-2xl">To tell you the truth, I'm no magician.</p>
-                    <p class="text-2xl">But I do make stuff work!</p>
+                    <h1 class="text-5xl sm:text-7xl antialiased leading-[10rem] h-[6rem] sm:h-20">About</h1>
+                    <p class="text-1xl sm:text-2xl">To tell you the truth, I'm no magician.</p>
+                    <p class="text-1xl sm:text-2xl">But I do make stuff work!</p>
                 </div>
             </div>
 
-            <div class="text-white flex flex-col">
-                <span>Alright, now that we've got all of this out of the way, let me tell you something about me.</span>
+            <div class="text-white flex flex-col gap-2 text-sm sm:text-lg pt-5 md:mt-20 pl-2 lg:ml-20 pr-2  md:pl-5 lg:w-[50vw] pointer-events-auto">
+                <span>So, Hi! I'm Zdzisaw, and I'm a passionate backend developer who is always tinkering with something </span> 
+                <span>Be it new langauge, new framework, new field, new tech. Doesn't matter, if I find it interesting I will find a way to try it out</span>
 
-                <span>I'm a Python backend developer with 3 years of "commercial experience" on my back.
-                I love working on side projects in my free time, they are "excuses" for me to get out of my comfort zone and try something new. 
-                Be it a new language, new tech, a completely different field, I will learn something.</span>
-
-                <span>But it's not just work that makes us tick.</span>
-                <span>I also love riding around the city on my trusty EUC, listenting to the harder styles of music and exploring and taking pictures of beautiful worlds inside of VRChat.</span>
-                <span>I find it quite amazing to be able to explore something shy of pure creators imagination, to see and experience what they imaigned in so many more ways is, I think, beautiful.</span>
-                <span>I don't have them posted anywhere yet tho.</span>
+                <span>But it's not just work that makes us tick</span>
+                <span>
+                    I've recently picked up a hobby of taking pictures of the worlds I explore in VR in VRChat, though I don't have them posted anywhere yet.
+                    I find it quite amazing to be able to explore something shy of pure creators imagination, to see and experience what they imagined in so many more ways is something beautiful.
+                    Besides that, I really love riding on an EUC. I love that feeling of flying through the city, zipping past everything, my electric unicycle gives me, it just feels so surreal.
+                </span>
 
                 <span>Anyway, sorry for the rambling, and thanks for visiting!.</span>   
             </div>
-        </section>
+        </>
     )
 }

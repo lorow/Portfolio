@@ -1,11 +1,18 @@
-$size: 5.5vmin;
 $color: rgba(224, 224, 224, 0.8);
 
 .scroll {
-  height: $size;
-  width: $size * 0.52;
-  border-radius: $size;
-  border: calc($size/26.5) solid $color;
+  --burger-menu-radius: 2.5em;
+  --size: 10.5vmin;
+
+  @media (min-width: 600px) {
+    --size: 5.5vmin;
+  }
+  
+
+  height: var(--size);
+  width: calc(var(--size) * 0.52);
+  border-radius: var(--size);
+  border: calc(var(--size)/26.5) solid $color;
   -webkit-background-clip: padding-box; /* for Safari */
   background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
 
@@ -13,10 +20,10 @@ $color: rgba(224, 224, 224, 0.8);
   &:before {
     content: '';
     position: absolute;
-    left: calc(50% - #{$size} / 35);
-    top: calc($size/5);
-    height: calc($size/5);
-    width: calc($size/15);
+    left: calc(50% - var(--size) / 35);
+    top: calc(var(--size)/5);
+    height: calc(var(--size)/5);
+    width: calc(var(--size)/15);
     background: $color;
     border-radius: 30%;
     animation: scroll 3s infinite;
@@ -36,7 +43,7 @@ $color: rgba(224, 224, 224, 0.8);
   }
   100% {
     opacity: 0;
-    transform: translateY(calc($size/4));
+    transform: translateY(calc(var(--size)/4));
   }
 }
 

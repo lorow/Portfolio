@@ -8,7 +8,6 @@ export default function ProjectSection() {
                     <p class="text-2xl">Checkout my github for more!</p>
                 </div>
             </div>
-
             <div class="relative text-white pl-20 ml-20 w-fit pt-10 flex flex-col gap-2 pointer-events-auto">
                 <article class="flex flex-col gap-2">
                     <h2 class="text-3xl text-white">/01 - EyeTrackVR</h2>
@@ -55,7 +54,6 @@ export default function ProjectSection() {
                         <a href="https://github.com/lorow/placeitgo/" class="text-base opacity-70 hover:opacity-100 ease-in-out duration-200">Check it out! <p class="inline">&#8594;</p></a>
                     </div>
                 </article>
-
             </div>
         </>
     )

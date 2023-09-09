@@ -1,4 +1,4 @@
-import { createSignal } from 'solid-js';
+import Socials from './socials';
 import './styles/menu.scss'
 
 export default function Menu(props: any) {
@@ -86,6 +86,7 @@ export default function Menu(props: any) {
                     </div>
                 </div>
             </div>
+            <Socials shouldHideOnMobile={false}/>
         </div>
         </>
     )

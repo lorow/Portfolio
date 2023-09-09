@@ -7,8 +7,11 @@ interface Props {
 
 export default function Socials(props: Props) {
     return (
-        // todo make this appear in the menu on mobile
-        <div classList={{"md:visible": props.shouldHideOnMobile }} class="invisible fixed bottom-10 right-20 flex gap-2">
+        <div 
+            class={
+                `${props.shouldHideOnMobile ? "md:visible invisible" : "md:invisible visible"}
+                fixed bottom-10 sm:right-20 right-0 ml-[-70px] sm:ml-0 left-[50%] md:left-auto flex gap-2`
+            }>
             <a href="https://github.com/lorow" class="github h-6 w-6"></a>
             <div class="flex flex-row gap-2 place-items-center">
                 <div class="line"></div>

@@ -53,16 +53,16 @@ export default function IndexPage() {
             <LoadingPage progress={progress} />
             <Menu setSection={setSection} />
             <main ref={mainElement} class="relative max-h-screen overflow-y-hidden no-scrollbar pointer-events-none">
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index} shoudlBeBlurred={false}>
                     <MainSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects} shoudlBeBlurred={true}>
                     <ProjectSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog} shoudlBeBlurred={true}>
                     <BlogSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about} shoudlBeBlurred={true}>
                     <AboutSection/>
                 </JumpableSection>
             </main>
