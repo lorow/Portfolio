@@ -53,16 +53,16 @@ export default function IndexPage() {
             <LoadingPage progress={progress} />
             <Menu setSection={setSection} />
             <main ref={mainElement} class="relative max-h-screen overflow-y-hidden no-scrollbar pointer-events-none">
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index} shoudlBeBlurred={false}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index} shoudlBeBlurred={false} pointerEventsOnSmallScreen={false}>
                     <MainSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects} shoudlBeBlurred={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
                     <ProjectSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog} shoudlBeBlurred={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
                     <BlogSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about} shoudlBeBlurred={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
                     <AboutSection/>
                 </JumpableSection>
             </main>
