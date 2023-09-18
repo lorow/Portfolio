@@ -13,7 +13,7 @@ export default function JumpableSection(props: JumpableSectionProps){
     onMount(() => props.registerSelf(props.sectionIndex, sectionRef))
 
     return (
-        <section ref={sectionRef} class={`${props.shoudlBeBlurred ? "backdrop-blur-sm" : ""} ${props.pointerEventsOnSmallScreen ? "pointer-events-auto lg:pointer-events-none" : ""} w-full h-screen sm:overflow-hidden`}>
+        <section ref={sectionRef} class={`${props.shoudlBeBlurred ? "backdrop-blur-lg" : ""} ${props.pointerEventsOnSmallScreen ? "pointer-events-auto lg:pointer-events-none" : ""} w-full h-screen sm:overflow-hidden`}>
             {props.children}
         </section>
     )

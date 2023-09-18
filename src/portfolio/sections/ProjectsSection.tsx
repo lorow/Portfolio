@@ -1,9 +1,9 @@
 export default function ProjectSection() {
     return (
         <>
-            <div class="flex text-white md:pl-20 pt-2 sm:pt-10 w-full pointer-events-auto">
+            <div class="flex text-white md:pl-20 sm:pt-10 pt-5 w-full pointer-events-auto">
                 <div class="flex flex-col max-lg ml-5">
-                    <h1 class="text-5xl sm:text-7xl antialiased leading-[10rem] h-[6rem] sm:h-20">Projects</h1>
+                    <h1 class="text-5xl sm:text-7xl antialiased mt-7 sm:mt-0">Projects</h1>
                     <p class="text-1xl sm:text-2xl">Things I loved working on, and I'm proud of.</p>
                     <p class="text-1xl sm:text-2xl">Checkout my github for more!</p>
                 </div>

@@ -6,7 +6,7 @@ export default function BlogSection(){
         <>
         <div class="flex text-white md:pl-20 pt-2 sm:pt-10 w-full pointer-events-auto">
             <div class="flex flex-col max-lg ml-5">
-                <h1 class="text-5xl sm:text-7xl antialiased leading-[10rem] h-[6rem] sm:h-20">Blog</h1>
+                <h1 class="text-5xl sm:text-7xl antialiased mt-7 sm:mt-0">Blog</h1>
                 <p class="text-1xl sm:text-2xl">A personal space where I rumble about stuff.</p>
             </div>
         </div>
@@ -14,7 +14,7 @@ export default function BlogSection(){
             WIP
         </span>
 
-        <span class="text-white opacity-80 text-lg sm:text-3xl block ml-auto mr-auto h-fit w-fit">
+        <span class="text-white opacity-80 text-lg sm:text-3xl block ml-auto mr-auto h-fit w-fit text-center">
             The Blog is currently under development, come back later!
         </span>
 
