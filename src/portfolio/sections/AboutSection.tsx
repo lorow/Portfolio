@@ -9,18 +9,20 @@ export default function AboutSection(){
                 </div>
             </div>
 
-            <div class="text-white flex flex-col gap-2 sm:text-lg pt-5 md:mt-20 pl-7 lg:ml-20 pr-2 md:pl-5 lg:w-[50vw] pointer-events-auto">
-                <span>So, Hi! I'm Zdzisław, and I'm a passionate backend developer who is always tinkering with something</span> 
-                <span>Be it new langauge, new framework, new field, new tech. Doesn't matter, if I find it interesting I will find a way to try it out</span>
+            <div >
+                <div class="text-white flex flex-col gap-2 sm:text-lg pt-5 md:mt-20 pl-7 lg:ml-20 pr-2 md:pl-5 lg:w-[50vw] pointer-events-auto">
+                    <span>So, Hi! I'm Zdzisław, and I'm a passionate backend developer who is always tinkering with something</span> 
+                    <span>Be it new langauge, new framework, new tech. Doesn't matter, if I find it interesting I will find a way to try it out</span>
 
-                <span>But it's not just work that makes us tick</span>
-                <span>
-                    I've recently picked up a hobby of taking pictures of the worlds I explore in VR in VRChat, though I don't have them posted anywhere yet.
-                    I find it quite amazing to be able to explore something shy of pure creators imagination, to see and experience what they imagined in so many more ways is something beautiful.
-                    Besides that, I really love riding on an EUC. I love that feeling of flying through the city, zipping past everything, my electric unicycle gives me, it just feels so surreal.
-                </span>
+                    <span>But it's not just work that makes us tick</span>
+                    <span>
+                        I've recently picked up a hobby of taking pictures of the worlds I explore in VR in VRChat, though I don't have them posted anywhere yet.
+                        I find it quite amazing to be able to explore something shy of pure creators' imagination. To see and experience what they imagined in so many more ways is something beautiful.
+                        Besides that, I really love riding on an EUC. I love that feeling of flying through the city, zipping past everything, my electric unicycle gives me, it just feels so surreal.
+                    </span>
 
-                <span>Anyway, sorry for the rambling, and thanks for visiting!</span>   
+                    <span>Anyway, sorry for the rambling, and thanks for visiting!</span>   
+                </div>
             </div>
         </>
     )

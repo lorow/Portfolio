@@ -1,6 +1,6 @@
 import './global.scss';
 import { createEffect, createSignal, onMount, } from "solid-js";
-import { debouce, availableSections } from './utils';
+import { debouce, availableSections, sectionNameToNumber } from './utils';
 import Canvas from './canvas/Canvas'
 import LoadingPage from './sections/LoadingPage';
 import JumpableSection from './sections/JumpableSection';
@@ -16,31 +16,42 @@ import ScrollPointer from "./components/ScrollPointer"
 export default function IndexPage() {
     const [section, setSection] = createSignal(1);
     const [progress, setProgress] = createSignal(0);
+
     let canvasElement!: HTMLCanvasElement;
     let canvas;
     let mainElement!: HTMLElement;
-    let sectionsRefs = new Map<number, HTMLElement>();
 
-    const addRef = (sectionName: number , ref: HTMLElement) => sectionsRefs.set(sectionName, ref);
+    let options = {
+        rootMargin: "-25px",
+        threshold: 0.5,
+    };
 
-    onMount(() => {        
-        window.addEventListener("wheel", debouce((event: WheelEvent) => {
-            event.preventDefault();
-            if (event.deltaY < 100) {
-                setSection(Math.max(1, section() - 1));
-            } else {
-                setSection(Math.min(section() + 1, sectionsRefs.size));
-            }
-        }), false);
 
-        const scrollToSection = () => {
-            sectionsRefs.get(section() - 1)!.scrollIntoView({
-                behavior: "smooth"
-            })
+    const onSectionEntered = (entries: Array<IntersectionObserverEntry>, observer: IntersectionObserver) => {
+        let sectionId = 1;
+        var visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        console.log(visibleEntries);
+
+        var lastEntry = visibleEntries.pop();
+        if(!lastEntry){
+            return;
         }
 
-        createEffect(() => { scrollToSection() });
+        sectionId = sectionNameToNumber[lastEntry.target.id];
 
+        if (Math.abs(sectionId - section())){
+            setSection(sectionId);
+            console.log(section(), sectionId);
+        }
+    }
+
+    let observer = new IntersectionObserver(onSectionEntered, options);
+
+    const addRef = (sectionName: number , ref: HTMLElement) => {
+        observer.observe(ref);
+    }
+
+    onMount(() => {        
         canvas = new Canvas(canvasElement);
         canvas.addOnProgressCallback(setProgress);
         canvas.start();
@@ -52,17 +63,17 @@ export default function IndexPage() {
             <canvas ref={canvasElement} id="CanvasDisplay" class="fixed"/>
             <LoadingPage progress={progress} />
             <Menu setSection={setSection} />
-            <main ref={mainElement} class="relative max-h-screen overflow-y-hidden no-scrollbar pointer-events-none">
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index} shoudlBeBlurred={false} pointerEventsOnSmallScreen={false}>
+            <main ref={mainElement} class="relative no-scrollbar pointer-events-none">
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.index} sectionName={"home"} pointerEventsOnSmallScreen={false}>
                     <MainSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.projects} sectionName={"projects"} pointerEventsOnSmallScreen={true}>
                     <ProjectSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.blog} sectionName={"blog"} pointerEventsOnSmallScreen={true}>
                     <BlogSection/>
                 </JumpableSection>
-                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about} shoudlBeBlurred={true} pointerEventsOnSmallScreen={true}>
+                <JumpableSection registerSelf={addRef} sectionIndex={availableSections.about} sectionName={"about"} pointerEventsOnSmallScreen={true}>
                     <AboutSection/>
                 </JumpableSection>
             </main>

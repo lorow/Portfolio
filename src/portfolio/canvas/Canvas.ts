@@ -150,9 +150,11 @@ export default class Canvas {
     }
 
     public render(){
-        requestAnimationFrame(this.update);
-        this.orbitControls.update();
-        this.ringObject.lookAt(this.camera.position);
-        this.composer.render();
+        setTimeout(() => {
+            requestAnimationFrame(this.update);
+            this.orbitControls.update();
+            this.ringObject.lookAt(this.camera.position);
+            this.composer.render();    
+        }, 1000/60);
     }
 }

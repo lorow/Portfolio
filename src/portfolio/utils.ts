@@ -12,3 +12,12 @@ export enum availableSections {
     blog,
     about,
 }
+
+const sectionNameToNumber: any = {
+    "home" : 1,
+    "projects" : 2,
+    "blog" : 3,
+    "about" : 4,
+};
+
+export {sectionNameToNumber}

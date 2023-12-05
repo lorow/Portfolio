@@ -20,7 +20,7 @@ export default function Menu(props: any) {
     
         <div class="menu flex flex-col gap-6">
         <div class="menu-item">
-                <a class="menu-item-link" href="#projects" onClick={() => HandleRouteSwitch(1)}>/Home</a>
+                <a class="menu-item-link" href="#home" onClick={() => HandleRouteSwitch(1)}>/Home</a>
                 <div class="marquee">
                     <div class="marquee-inner" aria-hidden="true">
                         <span>Home</span>
