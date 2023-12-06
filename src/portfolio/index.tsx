@@ -1,6 +1,6 @@
 import './global.scss';
 import { createEffect, createSignal, onMount, } from "solid-js";
-import { debouce, availableSections, sectionNameToNumber } from './utils';
+import { getScrollPercent, availableSections, sectionNameToNumber, smoothStep } from './utils';
 import Canvas from './canvas/Canvas'
 import LoadingPage from './sections/LoadingPage';
 import JumpableSection from './sections/JumpableSection';
@@ -51,8 +51,17 @@ export default function IndexPage() {
         observer.observe(ref);
     }
 
+    const handleBlurOnScroll = (event: Event) => {
+        var scrollPercent = getScrollPercent();
+        var blur = 0;
+        if (scrollPercent > 10)    
+            blur = smoothStep(scrollPercent, 0, 10) * 5;
+        mainElement.style.backdropFilter = "blur("+ blur + "px)";
+    }
+
     onMount(() => {        
-        canvas = new Canvas(canvasElement);
+        canvas = new Canvas(canvasElement);8
+        window.addEventListener("scroll", handleBlurOnScroll);
         canvas.addOnProgressCallback(setProgress);
         canvas.start();
         canvas.render();
