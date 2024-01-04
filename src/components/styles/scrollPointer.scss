@@ -1,22 +1,23 @@
 $color: rgba(224, 224, 224, 0.8);
 
 .scroll {
-  --burger-menu-radius: 2.5em;
   --size: 10.5vmin;
 
   @media (min-width: 600px) {
     --size: 5.5vmin;
   }
-  
 
   height: var(--size);
   width: calc(var(--size) * 0.52);
   border-radius: var(--size);
   border: calc(var(--size)/26.5) solid $color;
-  -webkit-background-clip: padding-box; /* for Safari */
-  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+  -webkit-background-clip: padding-box;
+  /* for Safari */
+  background-clip: padding-box;
+  /* for IE9+, Firefox 4+, Opera, Chrome */
 
-  position: relative;
+  position: sticky;
+
   &:before {
     content: '';
     position: absolute;
@@ -34,13 +35,16 @@ $color: rgba(224, 224, 224, 0.8);
   0% {
     opacity: 0;
   }
+
   20% {
     opacity: 0.8;
     transform: translateY(0);
   }
+
   40% {
     opacity: 0.8;
   }
+
   100% {
     opacity: 0;
     transform: translateY(calc(var(--size)/4));

@@ -7,20 +7,22 @@
 
 .github {
     background-color: #aaaaaa;
-    &:hover{
+
+    &:hover {
         background-color: white;
     }
- 
+
     -webkit-mask: url("github.svg") no-repeat center;
     mask: url("github.svg") no-repeat center;
 }
 
 .linkedin {
     background-color: #aaaaaa;
-    &:hover{
+
+    &:hover {
         background-color: white;
     }
- 
+
     transition: all 0.3s;
 
     -webkit-mask: url("linkedin.svg") no-repeat center;

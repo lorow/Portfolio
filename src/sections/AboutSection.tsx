@@ -1,4 +1,4 @@
-export default function AboutSection(){
+export default function AboutSection() {
     return (
         <>
             <div class="flex text-white md:pl-20 pt-2 sm:pt-10 w-full pointer-events-auto">
@@ -10,8 +10,8 @@ export default function AboutSection(){
             </div>
 
             <div >
-                <div class="text-white flex flex-col gap-2 sm:text-lg pt-5 md:mt-20 pl-7 lg:ml-20 pr-2 md:pl-5 lg:w-[50vw] pointer-events-auto">
-                    <span>So, Hi! I'm Zdzisław, and I'm a passionate backend developer who is always tinkering with something</span> 
+                <div class="text-white flex flex-col gap-2 md:text-lg pt-5 xl:mt-10 pl-7 lg:ml-20 pr-2 md:pl-5 lg:w-[50vw] pointer-events-auto">
+                    <span>So, Hi! I'm Zdzisław, and I'm a passionate backend developer who is always tinkering with something</span>
                     <span>Be it new langauge, new framework, new tech. Doesn't matter, if I find it interesting I will find a way to try it out</span>
 
                     <span>But it's not just work that makes us tick</span>
@@ -21,7 +21,7 @@ export default function AboutSection(){
                         Besides that, I really love riding on an EUC. I love that feeling of flying through the city, zipping past everything, my electric unicycle gives me, it just feels so surreal.
                     </span>
 
-                    <span>Anyway, sorry for the rambling, and thanks for visiting!</span>   
+                    <span>Anyway, sorry for the rambling, and thanks for visiting!</span>
                 </div>
             </div>
         </>

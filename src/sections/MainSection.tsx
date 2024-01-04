@@ -1,4 +1,4 @@
-const MainSection = () => {    
+const MainSection = () => {
     return (
         <div class=" text-white md:pl-20 pt-2 sm:pt-10 w-full pointer-events-auto">
             <div class="flex flex-col lg:flex-row max-lg ml-5">
