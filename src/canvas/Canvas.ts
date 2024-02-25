@@ -114,7 +114,7 @@ export default class Canvas {
         const gridEffect = new GridEffect({ scale: 1.6 });
         const bloomEffect = new BloomEffect(
             {
-                intensity: .5,
+                intensity: .25,
                 mipmapBlur: true
             }
         );

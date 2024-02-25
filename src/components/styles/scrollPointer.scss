@@ -16,7 +16,7 @@ $color: rgba(224, 224, 224, 0.8);
   background-clip: padding-box;
   /* for IE9+, Firefox 4+, Opera, Chrome */
 
-  position: sticky;
+  position: fixed;
 
   &:before {
     content: '';

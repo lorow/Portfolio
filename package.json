@@ -9,15 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "clsx": "^2.1.0",
     "cssnano": "^6.0.2",
-    "postprocessing": "^6.33.4",
+    "framer-motion": "^11.0.6",
+    "postprocessing": "^6.34.3",
     "scss": "^0.2.4",
     "solid-js": "^1.8.7",
     "tailwind": "^4.0.0",
-    "three": "^0.160.0",
+    "tailwind-merge": "^2.2.1",
+    "three": "^0.161.0",
     "tweakpane": "^4.0.3"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
     "@tweakpane/core": "^2.0.3",
     "@types/three": "^0.160.0",
     "autoprefixer": "^10.4.16",
