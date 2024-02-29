@@ -16,6 +16,7 @@ import {
 
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { CustomGlitchEffect } from './glitch/effect';
 // import { Pane } from 'tweakpane';
 
 
@@ -83,7 +84,7 @@ export default class Canvas {
     }
 
     private initScene(): void {
-        this.scene.background = new THREE.Color(0x171717);//0x0f0f0f);
+        this.scene.background = new THREE.Color(0x171717); //0x0f0f0f);
     }
 
     private setupOrbitControls() {
@@ -111,7 +112,7 @@ export default class Canvas {
         smaaEffect.edgeDetectionMaterial.edgeDetectionThreshold = 0.01;
 
         const noiseEffect = new NoiseEffect({ premultiply: false });
-        const gridEffect = new GridEffect({ scale: 1.6 });
+        const gridEffect = new GridEffect({ scale: 1.5 });
         const bloomEffect = new BloomEffect(
             {
                 intensity: .25,
@@ -120,11 +121,16 @@ export default class Canvas {
         );
 
         // @ts-ignore
-        const glitchEffect = new GlitchEffect({
-            chromaticAberrationOffset: new THREE.Vector2(2, 2),
-            delay: new THREE.Vector2(3, 10),
-            duration: new THREE.Vector2(0.1, 0.2),
-
+        // const glitchEffect = new GlitchEffect({
+        //     chromaticAberrationOffset: new THREE.Vector2(2, 2),
+        //     delay: new THREE.Vector2(3, 10),
+        //     duration: new THREE.Vector2(0.1, 0.2),
+        // });
+        const textureLoader = new THREE.TextureLoader(); 
+        const noiseTexture = textureLoader.load('../textures/noise.png');
+        console.log("noise", noiseTexture); 
+        const glitchEffect = new CustomGlitchEffect({
+            noiseTexture: noiseTexture,
         });
 
         noiseEffect.blendMode.opacity.value = 0.7;
@@ -132,11 +138,11 @@ export default class Canvas {
 
         const renderPass = new RenderPass(this.scene, this.camera);
         const effectPass = new EffectPass(this.camera, smaaEffect, noiseEffect, gridEffect, bloomEffect);
-        // const glitchPass = new EffectPass(this.camera, glitchEffect);
+        const glitchPass = new EffectPass(this.camera, glitchEffect);
 
         this.composer.addPass(renderPass);
         this.composer.addPass(effectPass);
-        // this.composer.addPass(glitchPass);
+        this.composer.addPass(glitchPass);
     }
 
     private loadInterestObject() {
