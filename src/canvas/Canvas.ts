@@ -119,15 +119,10 @@ export default class Canvas {
                 mipmapBlur: true
             }
         );
-
-        // @ts-ignore
-        // const glitchEffect = new GlitchEffect({
-        //     chromaticAberrationOffset: new THREE.Vector2(2, 2),
-        //     delay: new THREE.Vector2(3, 10),
-        //     duration: new THREE.Vector2(0.1, 0.2),
-        // });
         const textureLoader = new THREE.TextureLoader(); 
-        const noiseTexture = textureLoader.load('../textures/noise.png');
+        // const noiseTexture = textureLoader.load('../textures/noise.png');
+        const noiseTexture = textureLoader.load('../textures/perlinNoise.png');
+        // const noiseTexture = textureLoader.load('../textures/fractalNoise.png');
         console.log("noise", noiseTexture); 
         const glitchEffect = new CustomGlitchEffect({
             noiseTexture: noiseTexture,
