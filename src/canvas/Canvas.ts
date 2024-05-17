@@ -9,7 +9,6 @@ import {
     GridEffect,
     NoiseEffect,
     BloomEffect,
-    GlitchEffect,
     SMAAEffect,
     SMAAPreset,
 } from "postprocessing";
@@ -17,6 +16,7 @@ import {
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CustomGlitchEffect } from './glitch/effect';
+import { CRTScreenEffect } from './CRTScreen/effect';
 // import { Pane } from 'tweakpane';
 
 
@@ -128,16 +128,20 @@ export default class Canvas {
             noiseTexture: noiseTexture,
         });
 
+        const crtScreenEffect = new CRTScreenEffect();
+
         noiseEffect.blendMode.opacity.value = 0.7;
         noiseEffect.blendMode.blendFunction = BlendFunction.REFLECT;
 
         const renderPass = new RenderPass(this.scene, this.camera);
         const effectPass = new EffectPass(this.camera, smaaEffect, noiseEffect, gridEffect, bloomEffect);
         const glitchPass = new EffectPass(this.camera, glitchEffect);
+        const crtPass = new EffectPass(this.camera, crtScreenEffect);
 
         this.composer.addPass(renderPass);
         this.composer.addPass(effectPass);
         this.composer.addPass(glitchPass);
+        this.composer.addPass(crtPass);
     }
 
     private loadInterestObject() {
