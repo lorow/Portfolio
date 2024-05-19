@@ -24,6 +24,8 @@ type onLoadProgressCallback = (progress: number) => void;
 
 export default class Canvas {
     // private pane = new Pane();
+    private lastRenderTime = 0;
+    private targetedFPS = 1000/90;
 
     private progressCallbacks = new Array<onLoadProgressCallback>();
 
@@ -67,6 +69,8 @@ export default class Canvas {
         this.loadInterestObject();
         this.setupRing();
         this.initPostProcessingPipeline();
+
+        requestAnimationFrame(this.animate);
     }
 
     private createCamera(): void {
@@ -78,7 +82,6 @@ export default class Canvas {
             powerPreference: "high-performance",
             canvas: this.canvasElement
         });
-        this.renderer.setAnimationLoop(this.animate);
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
     }
@@ -206,10 +209,17 @@ export default class Canvas {
         this.scene.add(mesh);
     }
 
-    public render() {
-        this.orbitControls!.update();
-        this.ringObject.lookAt(this.camera.position);
-        // this.backgroundObject.lookAt(this.camera.position);
-        this.composer.render();
+
+    public render(time: number) {
+        const deltaTime = time - this.lastRenderTime;
+        
+        if (deltaTime >= this.targetedFPS){
+            this.orbitControls!.update();
+            this.ringObject.lookAt(this.camera.position);
+            // this.backgroundObject.lookAt(this.camera.position);
+            this.composer.render();
+            this.lastRenderTime = time;
+        } 
+        requestAnimationFrame(this.animate);
     }
 }
