@@ -25,7 +25,7 @@ enum TypeWriterState {
 export default function Typewritter(props: TypewritterProps){
   const [currentWordIndex, setCurrentWordIndex] = createSignal(0);
   const [currentCharIndex, setcurrentCharIndex] = createSignal(0);
-  const [writingState, transitionWritingState] = createSignal(TypeWriterState.WAIT_AFTER_DELETE);
+  const [writingState, transitionWritingState] = createSignal(TypeWriterState.INITIAL_DEYLAY);
   const typingSpeed = 70;  // higher = slowerr
 
   const wordsArray = props.words.map((word) => {
@@ -39,7 +39,7 @@ export default function Typewritter(props: TypewritterProps){
         case TypeWriterState.INITIAL_DEYLAY:
           setTimeout(() => {
             transitionWritingState(TypeWriterState.TYPE_WORD);
-          }, 500);
+          }, 700);
           break; 
         case TypeWriterState.TYPE_WORD:
             if (currentCharIndex() < wordsArray[currentWordIndex()].length)
