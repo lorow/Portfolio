@@ -155,7 +155,6 @@ export default class Canvas {
                 current_context.orbitControls!.target = model.scene.position;
                 current_context.scene.add(model.scene);
                 model_light.target = model.scene;
-                console.log(model.scene);
             },
             function (xhr: any) {
                 let progress = xhr.loaded / xhr.total * 100;

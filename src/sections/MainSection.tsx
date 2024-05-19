@@ -1,4 +1,5 @@
 import GlitchedLetter from "../components/GlitchedLetter";
+import Typewritter from "../components/typrewritter";
 
 const MainSection = () => {
     return (
@@ -9,10 +10,22 @@ const MainSection = () => {
                     <GlitchedLetter letter="!"/>
                 </h1>
                 <div class="flex flex-col justify-center pt-[5rem] sm:pt-[3rem]">
-                    <p class="text-2xl sm:text-3xl">I'm Zdzisław</p>
-                    <span class="text-2xl sm:text-3xl flex">And I'm a
-                        <span class="ml-2">backend developer.</span> 
-                        {/* <div class="ml-2 text-sky-400">|</div> */}
+                    <p class="text-2xl sm:text-3xl">I'm Lorow</p>
+                    <span class="text-2xl sm:text-3xl flex">And I'm
+                        {/* span to fix spacing issues */}
+                        <span class="ml-2"></span>  
+                        <Typewritter 
+                            words={[
+                                "a Backend developer.",
+                                "a Creative person.",
+                                "Always working on something.",
+                                "A VR enjoyer",
+                            ]}
+                            className="text-2xl sm:text-3xl flex"
+                            cursorClassName="ml-2 text-sky-400"
+                            currentSection={1}
+                            typeWriterSection={1}
+                        />
                     </span>
                     <p class="text-2xl sm:text-3xl">Nice to meet you.</p>
                 </div>
