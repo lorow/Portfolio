@@ -52,7 +52,7 @@ export default function Typewritter(props: TypewritterProps){
           case TypeWriterState.WAIT_DELAY:
             setTimeout(() => {
               transitionWritingState(TypeWriterState.ERASE_WORD);
-            }, 2000)
+            }, 4000)
           break;
           case TypeWriterState.ERASE_WORD:
             if (currentCharIndex() > 0)
