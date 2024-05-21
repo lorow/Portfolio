@@ -65,7 +65,7 @@ function App() {
     canvas = new Canvas(canvasElement);
     canvas.addOnProgressCallback(setProgress);
     canvas.start();
-    canvas.render();
+    canvas.render(0);
   })
 
   onMount(() => {
