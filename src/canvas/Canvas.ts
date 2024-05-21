@@ -25,7 +25,7 @@ type onLoadProgressCallback = (progress: number) => void;
 export default class Canvas {
     // private pane = new Pane();
     private lastRenderTime = 0;
-    private targetedFPS = 1000/90;
+    private targetedFPS = 1000 / 90;
 
     private progressCallbacks = new Array<onLoadProgressCallback>();
 
@@ -122,11 +122,8 @@ export default class Canvas {
                 mipmapBlur: true
             }
         );
-        const textureLoader = new THREE.TextureLoader(); 
-        // const noiseTexture = textureLoader.load('../textures/noise.png');
+        const textureLoader = new THREE.TextureLoader();
         const noiseTexture = textureLoader.load('../textures/perlinNoise.png');
-        // const noiseTexture = textureLoader.load('../textures/fractalNoise.png');
-        console.log("noise", noiseTexture); 
         const glitchEffect = new CustomGlitchEffect({
             noiseTexture: noiseTexture,
         });
@@ -212,14 +209,14 @@ export default class Canvas {
 
     public render(time: number) {
         const deltaTime = time - this.lastRenderTime;
-        
-        if (deltaTime >= this.targetedFPS){
+
+        if (deltaTime >= this.targetedFPS) {
             this.orbitControls!.update();
             this.ringObject.lookAt(this.camera.position);
             // this.backgroundObject.lookAt(this.camera.position);
             this.composer.render();
             this.lastRenderTime = time;
-        } 
+        }
         requestAnimationFrame(this.animate);
     }
 }
