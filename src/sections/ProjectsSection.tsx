@@ -5,7 +5,7 @@ import { createEffect, JSXElement, onMount, createSignal } from "solid-js"
 interface projectItemProps {
   link: string,
   children: JSXElement,
-  registerSelf: (ref: HTMLElement) => void;
+  registerSelf: (ref: HTMLElement) => void,
   title: string
 }
 
