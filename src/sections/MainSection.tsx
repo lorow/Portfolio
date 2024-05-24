@@ -18,7 +18,7 @@ const MainSection = () => {
               words={[
                 "a Backend developer.",
                 "a Creative person.",
-                "A Tinker.",
+                "A Tinkerer.",
                 "A VR enjoyer",
               ]}
               className="text-2xl sm:text-3xl flex"
