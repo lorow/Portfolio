@@ -62,14 +62,12 @@ function App() {
   onMount(() => {
     setIsMobile(checkIfMobile());
 
+    window.addEventListener("scroll", handleBlurOnScroll);
+
     canvas = new Canvas(canvasElement);
     canvas.addOnProgressCallback(setProgress);
     canvas.start();
     canvas.render(0);
-  })
-
-  onMount(() => {
-    window.addEventListener("scroll", handleBlurOnScroll);
   })
 
   return (

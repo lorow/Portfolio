@@ -9,6 +9,7 @@ interface MenuItemProps {
   routeName: string,
   subRouteName: string
   reapeatSubRouteNameTimes: number,
+  href: string
 }
 
 function MenuItem(props: MenuItemProps) {
@@ -17,7 +18,7 @@ function MenuItem(props: MenuItemProps) {
 
   return (
     <div ref={itemRef} class="menu-item">
-      <a class="menu-item-link" href="#home" onClick={() => props.HandleRouteSwitch()}>/{props.routeName}</a>
+      <a class="menu-item-link" href={`#` + props.href} onClick={() => props.HandleRouteSwitch()}>/{props.routeName}</a>
       <div class="marquee">
         <div class="marquee-inner" aria-hidden="true">
           {Array.from(Array(props.reapeatSubRouteNameTimes)).map((_) => <span>{props.subRouteName}</span>)}
@@ -33,10 +34,10 @@ export default function Menu(props: any) {
   const [registeredItems, setRegisteredItems] = createSignal<HTMLElement[]>([]);
   const addRef = (ref: HTMLElement) => setRegisteredItems([...registeredItems(), ref]);
 
-  let setSection = props.setSection;
   let menuToggle!: HTMLInputElement;
   const HandleRouteSwitch = (route: number) => {
-    setSection(route);
+    props.setSection(route);
+    toggleMenuVisible(false);
   }
 
   createEffect(() => {
@@ -59,7 +60,7 @@ export default function Menu(props: any) {
 
   return (
     <>
-      <input ref={menuToggle} onChange={() => toggleMenuVisible(!menuVisible())} type="checkbox" id="burger-toggle" />
+      <input ref={menuToggle} onChange={() => toggleMenuVisible(!menuVisible())} checked={menuVisible()} type="checkbox" id="burger-toggle" />
       <label for="burger-toggle" class="burger-menu">
         <div class="line"></div>
         <div class="line"></div>
@@ -70,6 +71,7 @@ export default function Menu(props: any) {
         <MenuItem
           registerSelf={addRef}
           HandleRouteSwitch={() => HandleRouteSwitch(1)}
+          href='home'
           routeName="Home"
           subRouteName="Home"
           reapeatSubRouteNameTimes={10}
@@ -78,6 +80,7 @@ export default function Menu(props: any) {
         <MenuItem
           registerSelf={addRef}
           HandleRouteSwitch={() => HandleRouteSwitch(2)}
+          href='projects'
           routeName="Projects"
           subRouteName="Works"
           reapeatSubRouteNameTimes={10}
@@ -86,6 +89,7 @@ export default function Menu(props: any) {
         <MenuItem
           registerSelf={addRef}
           HandleRouteSwitch={() => HandleRouteSwitch(3)}
+          href='blog'
           routeName="Blog"
           subRouteName="Blog"
           reapeatSubRouteNameTimes={10}
@@ -94,6 +98,7 @@ export default function Menu(props: any) {
         <MenuItem
           registerSelf={addRef}
           HandleRouteSwitch={() => HandleRouteSwitch(4)}
+          href='about'
           routeName="About"
           subRouteName="About"
           reapeatSubRouteNameTimes={10}
