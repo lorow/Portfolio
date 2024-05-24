@@ -38,14 +38,6 @@ export default function ProjectSection() {
         { opacity: 1 },
         { delay: stagger(0.2) }
       );
-
-      return (_) => {
-        animate(
-          registeredProjects(),
-          { opacity: 0 },
-          { delay: 0 },
-        );
-      }
     },
       { amount: 0.3 }
     );
@@ -61,55 +53,75 @@ export default function ProjectSection() {
         </div>
       </div>
       <div id="projects-list" class="relative text-white pl-5 pr-5 md:pl-20 md:ml-20 w-fit pt-10 flex flex-col gap-2 pointer-events-auto">
-        <section>
-          <ProjectItem
-            title="/01 - EyeTrackVR"
-            link="https://github.com/eyetrackvr/eyetrackvr"
-            registerSelf={addRef}
-          >
-            <div>
-              <p>ETVR is an open source and open hardware, completely DIY solution</p>
-              <p>which allows users to add eye tracking to almost any existing VR headset</p>
-            </div>
-          </ProjectItem>
+        <ProjectItem
+          title="/01 - EyeTrackVR"
+          link="https://github.com/eyetrackvr/eyetrackvr"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>ETVR is an open source and open hardware, completely DIY solution</p>
+            <p>which allows users to add eye tracking to almost any existing VR headset</p>
+          </div>
+        </ProjectItem>
 
-          <ProjectItem
-            title="/02 - OpenIris"
-            link="https://github.com/eyetrackvr/openiris/"
-            registerSelf={addRef}
-          >
-            <div>
-              <p>OpenIris is the firmare part of the EyeTrack project.</p>
-              <p>It handles video streaming form users headset as well as the</p>
-              <p>configuration, device discovery, state notification and more!</p>
-            </div>
-          </ProjectItem>
-        </section>
+        <ProjectItem
+          title="/02 - OpenIris"
+          link="https://github.com/eyetrackvr/openiris/"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>OpenIris is the firmare part of the EyeTrackVRR project.</p>
+            <p>It handles video streaming form users headset as well as the</p>
+            <p>configuration, device discovery, state notification and more!</p>
+          </div>
+        </ProjectItem>
 
-        <section>
-          <ProjectItem
-            title="/03 - EBookAPI"
-            link="https://github.com/lorow/ebookapi/"
-            registerSelf={addRef}
-          >
-            <div>
-              <p>A toy project, an excuse to step out of Django world</p>
-              <p>and try out FastAPI and friends</p>
-            </div>
-          </ProjectItem>
+        <ProjectItem
+          title="/03 - OSCMessageTool"
+          link="https://github.com/lorow/OSCMessageTool"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>A tool I made to help test out my VRCFaceTracking module for EyeTrackVR,</p>
+            <p>and to play around with TUIs.</p>
+            <p>It simulates real world usage by sending semi-real OSC messages, </p>
+            <p>just as if it was ETVR itself.</p>
+          </div>
+        </ProjectItem>
 
-          <ProjectItem
-            title="/04 - PlaceitGo"
-            link="https://github.com/lorow/placeitgo/"
-            registerSelf={addRef}
-          >
-            <div>
-              <p>Another toy project, another excuse to learn something!</p>
-              <p>This time it's Golang and the project is a placekitten lookalike</p>
-            </div>
-          </ProjectItem>
+        <ProjectItem
+          title="/04 - EBookAPI"
+          link="https://github.com/lorow/ebookapi/"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>A toy project, an excuse to step out of Django world and try out FastAPI and friends</p>
+            <p>The idea was to create a system which can pre-process,</p>
+            <p>and serve e-books from you local PC over an API</p>
+          </div>
+        </ProjectItem>
 
-        </section>
+        <ProjectItem
+          title="/05 - PlaceitGo"
+          link="https://github.com/lorow/jdiff"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>Another toy project, another excuse to learn something new!</p>
+            <p>This time it's rust and TUIs as a whole.</p>
+            <p>The idea behind this tool is to have a thing, whith which I can quickly debug microservices</p>
+          </div>
+        </ProjectItem>
+
+        <ProjectItem
+          title="/06 -And More!"
+          link="https://github.com/lorow/"
+          registerSelf={addRef}
+        >
+          <div>
+            <p>You can find a lot more of my projects on my github!</p>
+          </div>
+        </ProjectItem>
       </div>
     </>
   )
