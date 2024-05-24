@@ -124,9 +124,7 @@ export default class Canvas {
         );
         const textureLoader = new THREE.TextureLoader();
         const noiseTexture = textureLoader.load('../textures/perlinNoise.png');
-        const glitchEffect = new CustomGlitchEffect({
-            noiseTexture: noiseTexture,
-        });
+        const glitchEffect = new CustomGlitchEffect(noiseTexture);
 
         const crtScreenEffect = new CRTScreenEffect();
 
