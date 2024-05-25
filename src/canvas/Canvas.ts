@@ -169,7 +169,7 @@ export default class Canvas {
             },
             function (xhr: any) {
                 let progress = xhr.loaded / xhr.total * 100;
-                console.log("progress");
+                console.log("progress", progress);
                 current_context.progressCallbacks.forEach((callback) => { callback(progress) });
             },
             function (error: any) {
