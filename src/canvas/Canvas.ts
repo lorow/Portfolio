@@ -158,6 +158,7 @@ export default class Canvas {
         // we can later refactor this into proper loader
         const current_context = this;
         const loader = new GLTFLoader();
+        console.log("Attempting to load model");
         loader.load(
             "../models/novel-attention-shapes-no-textures.gltf",
             function (model: any) {
@@ -168,6 +169,7 @@ export default class Canvas {
             },
             function (xhr: any) {
                 let progress = xhr.loaded / xhr.total * 100;
+                console.log("progress");
                 current_context.progressCallbacks.forEach((callback) => { callback(progress) });
             },
             function (error: any) {
