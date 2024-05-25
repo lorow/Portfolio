@@ -1,0 +1,52 @@
+name: Build and release site
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ env.GITHUB_TOKEN }}
+      - name: setup node
+        uses: actions/setup-node@v3
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+      - name: Build project
+        run: npm run build
+      - name: Upload production-ready build files
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./dist
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    if: github.ref == 'refs/heads/main' 
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
