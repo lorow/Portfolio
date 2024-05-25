@@ -5,7 +5,7 @@ export default function LoadingPage(props: any) {
   const [shouldFadeout, setShouldFadeOut] = createSignal(false);
 
   createEffect(() => {
-    if (props.progress() === 100) {
+    if (props.progress() >= 100) {
       setTimeout(() => { setShouldFadeOut(true) }, 300);
     }
   });
