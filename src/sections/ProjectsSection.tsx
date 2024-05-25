@@ -102,7 +102,7 @@ export default function ProjectSection() {
         </ProjectItem>
 
         <ProjectItem
-          title="/05 - PlaceitGo"
+          title="/05 - JDiff"
           link="https://github.com/lorow/jdiff"
           registerSelf={addRef}
         >
