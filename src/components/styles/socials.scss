@@ -12,8 +12,8 @@
         background-color: white;
     }
 
-    -webkit-mask: url("github.svg") no-repeat center;
-    mask: url("github.svg") no-repeat center;
+    -webkit-mask: url("/github.svg") no-repeat center;
+    mask: url("/github.svg") no-repeat center;
 }
 
 .linkedin {
@@ -25,6 +25,6 @@
 
     transition: all 0.3s;
 
-    -webkit-mask: url("linkedin.svg") no-repeat center;
-    mask: url("linkedin.svg") no-repeat center;
+    -webkit-mask: url("/linkedin.svg") no-repeat center;
+    mask: url("/linkedin.svg") no-repeat center;
 }

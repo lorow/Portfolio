@@ -1,4 +1,16 @@
-import * as THREE from "three";
+import {
+    Scene,
+    PerspectiveCamera,
+    Object3D,
+    WebGLRenderer,
+    Color,
+    DirectionalLight,
+    TextureLoader,
+    AmbientLight,
+    RingGeometry,
+    MeshBasicMaterial,
+    Mesh,
+} from "three";
 
 import {
     BlendFunction,
@@ -29,13 +41,13 @@ export default class Canvas {
 
     private progressCallbacks = new Array<onLoadProgressCallback>();
 
-    private ringObject!: THREE.Object3D;
+    private ringObject!: Object3D;
     private orbitControls?: OrbitControls;
     private readonly animate = this.render.bind(this);
     private canvasElement: HTMLCanvasElement;
-    private renderer!: THREE.WebGLRenderer;
-    private scene = new THREE.Scene();
-    private camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 200);
+    private renderer!: WebGLRenderer;
+    private scene = new Scene();
+    private camera = new PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 200);
     private composer!: EffectComposer;
 
     public constructor(canvas: HTMLCanvasElement) {
@@ -78,7 +90,7 @@ export default class Canvas {
     }
 
     private createRenderer() {
-        this.renderer = new THREE.WebGLRenderer({
+        this.renderer = new WebGLRenderer({
             powerPreference: "high-performance",
             canvas: this.canvasElement
         });
@@ -87,7 +99,7 @@ export default class Canvas {
     }
 
     private initScene(): void {
-        this.scene.background = new THREE.Color(0x171717); //0x0f0f0f);
+        this.scene.background = new Color(0x171717); //0x0f0f0f);
     }
 
     private setupOrbitControls() {
@@ -122,7 +134,7 @@ export default class Canvas {
                 mipmapBlur: true
             }
         );
-        const textureLoader = new THREE.TextureLoader();
+        const textureLoader = new TextureLoader();
         const noiseTexture = textureLoader.load('../textures/perlinNoise.png');
         const glitchEffect = new CustomGlitchEffect(noiseTexture);
 
@@ -149,7 +161,7 @@ export default class Canvas {
         loader.load(
             "../models/novel-attention-shapes-no-textures.gltf",
             function (model: any) {
-                const model_light = new THREE.DirectionalLight(0xffffff, 10);
+                const model_light = new DirectionalLight(0xffffff, 10);
                 current_context.orbitControls!.target = model.scene.position;
                 current_context.scene.add(model.scene);
                 model_light.target = model.scene;
@@ -165,21 +177,21 @@ export default class Canvas {
     }
 
     private setupAccentLights() {
-        const dirLight1 = new THREE.DirectionalLight(new THREE.Color(72, 72, 72), 0.08);
+        const dirLight1 = new DirectionalLight(new Color(72, 72, 72), 0.08);
         // const firstLightHelper = new THREE.DirectionalLightHelper(dirLight1, 5);
         dirLight1.position.set(0, 2, 2);
         dirLight1.rotation.set(90, 45, 45);
         this.scene.add(dirLight1);
         // this.scene.add(firstLightHelper);
 
-        const dirLight2 = new THREE.DirectionalLight(new THREE.Color(0, 0, 7), 0.2);
+        const dirLight2 = new DirectionalLight(new Color(0, 0, 7), 0.2);
         // const secondLightHelper = new THREE.DirectionalLightHelper(dirLight2, 5);
         dirLight2.position.set(-2, - 1, 0);
         dirLight2.rotation.set(0, 0, 2.70);
         this.scene.add(dirLight2);
         // this.scene.add(secondLightHelper);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff);
+        const ambientLight = new AmbientLight(0xffffff);
         this.scene.add(ambientLight);
 
         // const lightFolder = this.pane.addFolder({ title: "lightFolder" });
@@ -197,9 +209,9 @@ export default class Canvas {
     }
 
     private setupRing() {
-        const geometry = new THREE.RingGeometry(1.19, 1.2, 128);
-        const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
-        const mesh = new THREE.Mesh(geometry, material);
+        const geometry = new RingGeometry(1.19, 1.2, 128);
+        const material = new MeshBasicMaterial({ color: 0xffffff });
+        const mesh = new Mesh(geometry, material);
         this.ringObject = mesh;
         this.scene.add(mesh);
     }
