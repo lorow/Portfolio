@@ -147,7 +147,7 @@ export default class Canvas {
         const current_context = this;
         const loader = new GLTFLoader();
         loader.load(
-            "../models/novel_attention_shapes_compressed.gltf",
+            "../models/novel-attention-shapes-no-textures.gltf",
             function (model: any) {
                 const model_light = new THREE.DirectionalLight(0xffffff, 10);
                 current_context.orbitControls!.target = model.scene.position;
