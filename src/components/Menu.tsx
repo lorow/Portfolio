@@ -104,7 +104,7 @@ export default function Menu(props: any) {
           reapeatSubRouteNameTimes={10}
         />
 
-        <Socials shouldHideOnMobile={false} />
+        <Socials shouldHideOnMobile={false} isInMenu={true} />
       </div>
     </>
   )

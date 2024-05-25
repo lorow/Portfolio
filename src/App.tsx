@@ -91,7 +91,7 @@ function App() {
       </main>
       <SectionCounter currentSection={section} />
       <ScrollPointer currentSection={section} maxSection={4} />
-      <Socials shouldHideOnMobile={true} />
+      <Socials shouldHideOnMobile={true} isInMenu={false} />
     </>
   )
 }
