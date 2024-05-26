@@ -47,7 +47,7 @@ export default function Menu(props: any) {
     if (menuVisible()) {
       animate(registeredItems(),
         { opacity: 1 },
-        { delay: stagger(0.3) }
+        { delay: stagger(0.15) }
       );
     }
     else {

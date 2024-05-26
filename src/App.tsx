@@ -52,8 +52,8 @@ function App() {
   const handleBlurOnScroll = () => {
     const scrollPercent = getScrollPercent();
     let blur = 0;
-    if (scrollPercent > 10) {
-      blur = smoothStep(scrollPercent, 0, 10) * 15;
+    if (scrollPercent > 5) {
+      blur = smoothStep(scrollPercent, 0, 10) * 20;
     }
 
     setBlur(`${blur}px`)
