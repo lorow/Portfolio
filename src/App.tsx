@@ -7,6 +7,7 @@ import MainSection from './sections/MainSection';
 import BlogSection from './sections/Blog/BlogSection';
 import ProjectSection from './sections/ProjectsSection';
 import AboutSection from './sections/AboutSection';
+import FooterSection from './sections/FooterSection.tsx';
 import Menu from './components/Menu'
 import SectionCounter from './components/SectionCounter';
 import Socials from './components/socials';
@@ -88,6 +89,7 @@ function App() {
         <JumpableSection registerSelf={addRef} sectionName={"about"} pointerEventsOnSmallScreen={true}>
           <AboutSection />
         </JumpableSection>
+        <FooterSection />
       </main>
       <SectionCounter currentSection={section} />
       <ScrollPointer currentSection={section} maxSection={4} />
