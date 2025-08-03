@@ -76,7 +76,7 @@ function App() {
       <canvas ref={canvasElement} id="CanvasDisplay" class="fixed" />
       <LoadingPage progress={progress} />
       <Menu setSection={setSection} />
-      <main class="relative no-scrollbar pointer-events-none" style={{ 'backdrop-filter': `blur(${blur()})`, '-webkit-backdrop-filter': `blur(${blur()})`, 'background-color': `#0003` }}>
+      <main class="relative no-scrollbar pointer-events-none" style={{ 'backdrop-filter': `blur(${blur()})`, '-webkit-backdrop-filter': `blur(${blur()})`, 'background-color': `#0003`, 'padding-bottom': '20px' }}>
         <JumpableSection registerSelf={addRef} sectionName={"home"} pointerEventsOnSmallScreen={isMobile()}>
           <MainSection />
         </JumpableSection>
