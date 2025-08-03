@@ -1,12 +1,7 @@
 $color: rgba(224, 224, 224, 0.8);
 
 .scroll {
-  --size: 10.5vmin;
-
-  @media (min-width: 600px) {
-    --size: 5.5vmin;
-  }
-
+  --size: 10.5vmin;  
   height: var(--size);
   width: calc(var(--size) * 0.52);
   border-radius: var(--size);
@@ -17,6 +12,10 @@ $color: rgba(224, 224, 224, 0.8);
   /* for IE9+, Firefox 4+, Opera, Chrome */
 
   position: fixed;
+
+  @media (min-width: 600px) {
+    --size: 5.5vmin;
+  }
 
   &:before {
     content: '';

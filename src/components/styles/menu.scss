@@ -37,10 +37,6 @@
 .burger-menu {
   --burger-menu-radius: 2.5em;
 
-  @media (min-width: 500px) {
-    --burger-menu-radius: 4em;
-  }
-
   position: fixed;
   top: 5vh;
   right: 5vh;
@@ -54,6 +50,10 @@
   outline: none;
   cursor: pointer;
 
+  @media (min-width: 500px) {
+    --burger-menu-radius: 4em;
+  }
+  
   .line {
     position: absolute;
     left: 25%;
