@@ -66,11 +66,11 @@ export default function ProjectSection() {
 
         <ProjectItem
           title="/02 - OpenIris"
-          link="https://github.com/eyetrackvr/openiris/"
+          link="https://github.com/lorow/openiris-espidf/"
           registerSelf={addRef}
         >
           <div>
-            <p>OpenIris is the firmare part of the EyeTrackVRR project.</p>
+            <p>OpenIris is the firmware part of the EyeTrackVRR project.</p>
             <p>It handles video streaming form users headset as well as the</p>
             <p>configuration, device discovery, state notification and more!</p>
           </div>
@@ -102,14 +102,14 @@ export default function ProjectSection() {
         </ProjectItem>
 
         <ProjectItem
-          title="/05 - JDiff"
-          link="https://github.com/lorow/jdiff"
+          title="/05 - GODiff"
+          link="https://github.com/lorow/godiff"
           registerSelf={addRef}
         >
           <div>
             <p>Another toy project, another excuse to learn something new!</p>
-            <p>This time it's rust and TUIs as a whole.</p>
-            <p>The idea behind this tool is to have a thing, whith which I can quickly debug microservices</p>
+            <p>This time it's Golang and TUIs as a whole.</p>
+            <p>The idea behind this tool is to have a simple utility, with which I can quickly debug web services</p>
           </div>
         </ProjectItem>
 
